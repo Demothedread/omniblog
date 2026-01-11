@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OmniBlog CMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              // International Style Neutrals
+              canvas: '#FAFAF9', // Warm paper-like white
+              ink: '#171717',    // Strict black
+              concrete: '#525252',
+              
+              // Prairie School Earth Tones (Accents)
+              ochre: {
+                DEFAULT: '#CA8A04', // Muted gold
+                light: '#FDE047',
+              },
+              clay: {
+                DEFAULT: '#9A3412', // Burnt orange/red
+                light: '#FFEDD5',
+              },
+              moss: {
+                DEFAULT: '#3F6212', // Deep organic green
+                light: '#ECFCCB',
+              },
+              
+              // Brand Legacy (kept for CMS interface consistency)
+              brand: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                900: '#0c4a6e',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
+      
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      /* Custom scrollbar for table containers */
+      .custom-scrollbar::-webkit-scrollbar {
+        height: 6px;
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #d4d4d4; 
+        border-radius: 0px; /* Rectilinear */
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #a3a3a3; 
+      }
+      /* Quill Editor Overrides for Consistency */
+      .ql-container {
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+      }
+      .ql-editor {
+        min-height: 300px;
+        font-weight: 300;
+      }
+      
+      /* UDD Animation Primitives */
+      .slide-in-right {
+        animation: slideInRight 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+      
+      @keyframes slideInRight {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "date-fns": "https://aistudiocdn.com/date-fns@^4.1.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react-quill": "https://aistudiocdn.com/react-quill@^2.0.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-canvas text-ink antialiased selection:bg-ochre selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>
